@@ -33,9 +33,16 @@ class AuthenticationController extends Controller
 
         $user = Users::create($penyewaData);
         $token = $user->createToken('penyewa-BTP')->plainTextToken;
+        $user->remember_token = $token;
+        $user->save();
 
         return response()->json([
-            'user' => $user,
+            'user' => [
+                'username' => $user->username,
+                'email' => $user->email,
+                'nama_lengkap' => $user->nama_lengkap,
+                'role' => $user->role,
+            ],
             'token' => $token
         ], 201);
     }
@@ -60,9 +67,16 @@ class AuthenticationController extends Controller
         }
 
         $token = $user->createToken('penyewa-BTP')->plainTextToken;
+        $user->remember_token = $token;
+        $user->save();
 
         return response()->json([
-            'user' => $user,
+            'user' => [
+                'username' => $user->username,
+                'email' => $user->email,
+                'nama_lengkap' => $user->nama_lengkap,
+                'role' => $user->role,
+            ],
             'token' => $token
         ], 200);
     }

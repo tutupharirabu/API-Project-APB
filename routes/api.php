@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\mobile\RuanganController;
+use App\Http\Controllers\mobile\PeminjamanController;
 use App\Http\Controllers\Auth\AuthenticationController;
 
 /*
@@ -21,5 +23,15 @@ Route::get('/test', function () {
     ], 200);
 });
 
+// LOGIN & REGISTER
 Route::post('/register', [AuthenticationController::class, 'register']);
 Route::post('/login', [AuthenticationController::class, 'login']);
+
+// CRUD FORM PEMINJAMAN
+Route::get('/ruangan', [RuanganController::class, 'index']);
+Route::post('/peminjaman', [PeminjamanController::class, 'store']);
+
+// STATUS PEMINJAMAN
+Route::get('/status-peminjaman', [PeminjamanController::class, 'getStatusPeminjaman']);
+
+

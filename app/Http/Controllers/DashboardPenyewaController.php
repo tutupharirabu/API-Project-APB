@@ -17,7 +17,7 @@ class DashboardPenyewaController extends Controller
      */
     public function create()
     {
-        $dataPeminjaman = Peminjaman::with(['ruangan', 'barang'])->get();
+        $dataPeminjaman = Peminjaman::with(['ruangan'])->get();
         return view('userDashboard', compact('dataPeminjaman'));
     }
 

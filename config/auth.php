@@ -50,6 +50,12 @@ return [
             'driver' => 'session',
             'provider' => 'penyewa',
         ],
+
+        'api' => [
+            'driver' => 'sanctum',
+            'provider' => 'users',
+            'hash' => false,
+        ],
     ],
 
     /*

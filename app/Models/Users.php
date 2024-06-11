@@ -11,5 +11,16 @@ class Users extends Authenticatable
     use HasFactory, HasApiTokens;
     protected $table = 'users';
     protected $primaryKey = 'id_users';
-    protected $fillable = ['username','email', 'role', 'nama_lengkap','password'];
+    protected $fillable = ['username','email', 'role', 'nama_lengkap','password', 'remember_token'];
+
+    protected $hidden = [
+        'password', 'remember_token',
+    ];
+
+    public function setRememberToken($value)
+    {
+        $this->rememberToken = $value;
+    }
 }
+
+
