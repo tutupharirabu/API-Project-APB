@@ -32,6 +32,6 @@ Route::get('/ruangan', [RuanganController::class, 'index']);
 Route::post('/peminjaman', [PeminjamanController::class, 'store']);
 
 // STATUS PEMINJAMAN
-Route::get('/status-peminjaman', [PeminjamanController::class, 'getStatusPeminjaman']);
+Route::post('/status-peminjaman', [PeminjamanController::class, 'getStatusPeminjaman']);
 
 
